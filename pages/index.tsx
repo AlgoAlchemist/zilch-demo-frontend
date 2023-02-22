@@ -11,17 +11,17 @@ const Home: NextPage = () => {
   return (
     <div className={styles.App}>
       <Head>
-        <title>Movie Reviews</title>
+        <title>ZILCH </title>
       </Head>
       <AppBar />
       <Center>
         <Box>
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            Add a review
+            REQUEST COMPUTE
           </Heading>
           <Form />
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            Existing Reviews
+            EXISTING REQUESTS
           </Heading>
           <MovieList />
         </Box>
