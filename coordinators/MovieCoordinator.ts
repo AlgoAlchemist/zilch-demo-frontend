@@ -2,7 +2,7 @@ import bs58 from 'bs58'
 import * as web3 from '@solana/web3.js'
 import { Movie } from '../models/Movie'
 
-const MOVIE_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
+const MOVIE_REVIEW_PROGRAM_ID = '4E3trPCNMgdrSdM23bgm3vHgiepDMrqBEzKL66fTuKUL'
 
 export class MovieCoordinator {
     static accounts: web3.PublicKey[] = []
