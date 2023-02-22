@@ -5,7 +5,7 @@ import { Box, Button, FormControl, FormLabel, Input, NumberDecrementStepper, Num
 import * as web3 from '@solana/web3.js'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 
-const MOVIE_REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN'
+const MOVIE_REVIEW_PROGRAM_ID = 'FdeZswDDRVjtMh72XF13vvZvZ8Jw66JPGqTBmF7tjQtY'
 
 export const Form: FC = () => {
     const [title, setTitle] = useState('')
@@ -81,7 +81,7 @@ export const Form: FC = () => {
             <form onSubmit={handleSubmit}>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        Movie Title
+                        Program Hash
                     </FormLabel>
                     <Input
                         id='title'
@@ -91,7 +91,7 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        Add your review
+                        PROGRAM/MASM
                     </FormLabel>
                     <Textarea
                         id='review'
@@ -101,7 +101,7 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        Rating
+                        INPUTS
                     </FormLabel>
                     <NumberInput
                         max={5}
