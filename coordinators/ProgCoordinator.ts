@@ -1,15 +1,15 @@
 import bs58 from 'bs58'
 import * as web3 from '@solana/web3.js'
-import { Movie } from '../models/Movie'
+import { Prog } from '../models/prog'
 
-const MOVIE_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
+const prog_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
 
-export class MovieCoordinator {
+export class ProgCoordinator {
     static accounts: web3.PublicKey[] = []
 
     static async prefetchAccounts(connection: web3.Connection, search: string) {
         const accounts = await connection.getProgramAccounts(
-            new web3.PublicKey(MOVIE_REVIEW_PROGRAM_ID),
+            new web3.PublicKey(prog_REVIEW_PROGRAM_ID),
             {
                 dataSlice: { offset: 2, length: 18 },
                 filters: search === '' ? [] : [
@@ -35,7 +35,7 @@ export class MovieCoordinator {
         this.accounts = accounts.map(account => account.pubkey)
     }
 
-    static async fetchPage(connection: web3.Connection, page: number, perPage: number, search: string, reload: boolean = false): Promise<Movie[]> {
+    static async fetchPage(connection: web3.Connection, page: number, perPage: number, search: string, reload: boolean = false): Promise<prog[]> {
         if (this.accounts.length === 0 || reload) {
             await this.prefetchAccounts(connection, search)
         }
@@ -51,15 +51,15 @@ export class MovieCoordinator {
 
         const accounts = await connection.getMultipleAccountsInfo(paginatedPublicKeys)
 
-        const movies = accounts.reduce((accum: Movie[], account) => {
-            const movie = Movie.deserialize(account?.data)
-            if (!movie) {
+        const progs = accounts.reduce((accum: Prog[], account) => {
+            const prog = Prog.deserialize(account?.data)
+            if (!prog) {
                 return accum
             }
 
-            return [...accum, movie]
+            return [...accum, prog]
         }, [])
 
-        return movies
+        return progs
     }
 }

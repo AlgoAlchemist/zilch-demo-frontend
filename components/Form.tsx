@@ -1,38 +1,38 @@
 import { FC } from 'react'
-import { Movie } from '../models/Movie'
+import { Prog } from '../models/prog'
 import { useState } from 'react'
 import { Box, Button, FormControl, FormLabel, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Textarea } from '@chakra-ui/react'
 import * as web3 from '@solana/web3.js'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 
-const MOVIE_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
+const prog_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
 
 export const Form: FC = () => {
-    const [title, setTitle] = useState('')
-    const [rating, setRating] = useState(0)
-    const [description, setDescription] = useState('')
+    const [program_hash, setTitle] = useState('')
+    const [inputs, setRating] = useState(0)
+    const [program_code, setDescription] = useState('')
 
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
 
     const handleSubmit = (event: any) => {
         event.preventDefault()
-        const movie = new Movie(title, rating, description)
-        handleTransactionSubmit(movie)
+        const prog = new Prog(program_hash, inputs, program_code)
+        handleTransactionSubmit(prog)
     }
 
-    const handleTransactionSubmit = async (movie: Movie) => {
+    const handleTransactionSubmit = async (prog: Prog) => {
         if (!publicKey) {
             alert('Please connect your wallet!')
             return
         }
 
-        const buffer = movie.serialize()
+        const buffer = prog.serialize()
         const transaction = new web3.Transaction()
 
         const [pda] = await web3.PublicKey.findProgramAddress(
-            [publicKey.toBuffer(), Buffer.from(movie.title)],// new TextEncoder().encode(movie.title)],
-            new web3.PublicKey(MOVIE_REVIEW_PROGRAM_ID)
+            [publicKey.toBuffer(), Buffer.from(prog.program_hash)],// new TextEncoder().encode(prog.title)],
+            new web3.PublicKey(prog_REVIEW_PROGRAM_ID)
         )
 
         const instruction = new web3.TransactionInstruction({
@@ -54,7 +54,7 @@ export const Form: FC = () => {
                 }
             ],
             data: buffer,
-            programId: new web3.PublicKey(MOVIE_REVIEW_PROGRAM_ID)
+            programId: new web3.PublicKey(prog_REVIEW_PROGRAM_ID)
         })
 
         transaction.add(instruction)
