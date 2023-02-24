@@ -11,17 +11,17 @@ const Home: NextPage = () => {
   return (
     <div className={styles.App}>
       <Head>
-        <title>ZILCH </title>
+        <title>ZILCH ORDERBOOK </title>
       </Head>
       <AppBar />
       <Center>
         <Box>
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            REGISTER PROOF
+            CREATE COMPUTE REQUEST
           </Heading>
           <Form />
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            EXISTING PROOFS
+            EXISTING REQUESTS
           </Heading>
           <MovieList />
         </Box>

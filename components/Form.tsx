@@ -91,7 +91,7 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                      PROOFS
+                      PROGRAM CODE
                     </FormLabel>
                     <Textarea
                         id='review'
@@ -101,7 +101,7 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        OUTPUTS
+                        INPUTS
                     </FormLabel>
                     <NumberInput
                         
