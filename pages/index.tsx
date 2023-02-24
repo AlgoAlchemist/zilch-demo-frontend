@@ -17,11 +17,11 @@ const Home: NextPage = () => {
       <Center>
         <Box>
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            REQUEST COMPUTE
+            REGISTER PROOF
           </Heading>
           <Form />
           <Heading as="h1" size="l" color="white" ml={4} mt={8}>
-            EXISTING REQUESTS
+            EXISTING PROOFS
           </Heading>
           <MovieList />
         </Box>

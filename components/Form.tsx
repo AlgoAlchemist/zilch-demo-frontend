@@ -5,7 +5,7 @@ import { Box, Button, FormControl, FormLabel, Input, NumberDecrementStepper, Num
 import * as web3 from '@solana/web3.js'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 
-const MOVIE_REVIEW_PROGRAM_ID = 'Hg6JwzqPcrZuC4EFQDg9eHoAob85VdgyM6saMTxJ43nz'
+const MOVIE_REVIEW_PROGRAM_ID = '4E3trPCNMgdrSdM23bgm3vHgiepDMrqBEzKL66fTuKUL'
 
 export const Form: FC = () => {
     const [title, setTitle] = useState('')
@@ -91,7 +91,7 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        PROGRAM/MASM
+                      PROOFS
                     </FormLabel>
                     <Textarea
                         id='review'
@@ -101,10 +101,10 @@ export const Form: FC = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel color='gray.200'>
-                        INPUTS
+                        OUTPUTS
                     </FormLabel>
                     <NumberInput
-                        max={5}
+                        
                         min={1}
                         onChange={(valueString) => setRating(parseInt(valueString))}
                     >

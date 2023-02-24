@@ -37,7 +37,7 @@ export const Card: FC<CardProps> = (props) => {
                     <Text
                         color="gray.200"
                     >
-                        {props.movie.rating}/5
+                        {props.movie.rating}
                     </Text>
                 </HStack>
                 <Text my={2} color="gray.400">
